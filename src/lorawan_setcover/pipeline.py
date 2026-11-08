@@ -25,6 +25,7 @@ from pathlib import Path
 
 import geopandas as gpd
 import pandas as pd
+import shapely
 from shapely.ops import unary_union
 
 from .solver import CoverResult, solve_max_coverage, solve_min_cover
@@ -98,7 +99,12 @@ def _centroids(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
 def _buffers(centroids: gpd.GeoDataFrame, expr: str) -> gpd.GeoDataFrame:
     out = centroids.copy()
     out["radius_m"] = _radius(centroids, expr)
-    out["geometry"] = centroids.geometry.buffer(out["radius_m"], quad_segs=16)
+    # shapely.buffer directly: GeoSeries.buffer() takes `resolution` in GeoPandas 1.0
+    # but `quad_segs` in newer versions - this works on both.
+    out["geometry"] = gpd.GeoSeries(
+        shapely.buffer(centroids.geometry.values, out["radius_m"].to_numpy(), quad_segs=16),
+        index=centroids.index, crs=centroids.crs,
+    )
     return out
 
 
