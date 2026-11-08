@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+
+# analysis outputs
+output/
+outputs/
+Wyniki*/
+*.qgs~
+*.qgz~
+
+# private notes - never published
+_NOTATKI*.md
+
+# OS / editors
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# never commit real data - only data/sample (synthetic) is tracked
+data/*
+!data/sample/

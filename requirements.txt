@@ -1,0 +1,6 @@
+# runtime (headless version); the QGIS script needs only pulp + pandas
+pulp>=2.7,<4
+pandas>=1.5
+geopandas>=0.14
+shapely>=2.0
+pyogrio>=0.7
