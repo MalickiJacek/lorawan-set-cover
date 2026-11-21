@@ -1,5 +1,7 @@
 # LoRaWAN Gateway Placement – Set Cover Optimisation (QGIS + GeoPandas)
 
+🇬🇧 **English** · 🇵🇱 [Wersja polska](README.pl.md)
+
 [![tests](https://github.com/MalickiJacek/lorawan-set-cover/actions/workflows/tests.yml/badge.svg)](https://github.com/MalickiJacek/lorawan-set-cover/actions/workflows/tests.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![QGIS](https://img.shields.io/badge/QGIS-3.x-589632)
